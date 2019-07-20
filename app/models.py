@@ -25,11 +25,11 @@ class User(UserMixin, db.Model):
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.Integer)
     category = db.Column(db.String(140))
+    payee = db.Column(db.String(140))
     desc = db.Column(db.String(200))
     amount = db.Column(db.Float)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.String(100), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
