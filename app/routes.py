@@ -69,8 +69,8 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Category #1'},
-        {'author': user, 'body': 'Category #2'}
+    transactions = [
+        {'id': 1, 'category': 'Grocery', 'desc': 'Karo birthday', 'amount': 24.5, 'timestamp': 'now'},
+        {'id': 2, 'category': 'Holiday', 'desc': 'Antalya', 'amount': 560.5, 'timestamp': 'later'},
     ]
-    return render_template('user.html', user=user, posts=posts)
+    return render_template('user.html', user=user, transactions=transactions)
